@@ -4,7 +4,7 @@ function OpeningCeremony(callback) {
   setTimeout(() => {
     console.log("Let the games begin");
     score = { red: 0, blue: 0, green: 0, yellow: 0 };
-    console.log(score);
+    console.log(JSON.stringify(score));
     callback(score);
   }, 1000);
 }
@@ -12,7 +12,7 @@ function OpeningCeremony(callback) {
 function Race100M(score, callback) {
   console.log("EVENT: RACE100M");
   console.log("previous score :");
-  console.log(score);
+  console.log(JSON.stringify(score));
   setTimeout(() => {
     const setRandomTime = [
       { color: "red", timeGenerated: 0 },
@@ -45,7 +45,7 @@ function Race100M(score, callback) {
     }
 
     console.log("updated new score :");
-    console.log(score);
+    console.log(JSON.stringify(score));
     callback(score);
   }, 3000);
 }
@@ -53,7 +53,7 @@ function Race100M(score, callback) {
 function LongJump(score, callback) {
   console.log("EVENT: LONG JUMP");
   console.log("previous score :");
-  console.log(score);
+  console.log(JSON.stringify(score));
   setTimeout(() => {
     //random color select
     let colors = ["red", "blue", "green", "yellow"];
@@ -63,14 +63,14 @@ function LongJump(score, callback) {
     score[randomColorSelect] += 150;
 
     console.log("updated new score :");
-    console.log(score);
+    console.log(JSON.stringify(score));
     callback(score);
   }, 2000);
 }
 function HighJump(score, callback) {
   console.log("EVENT: HIGH JUMP");
   console.log("previous score :");
-  console.log(score);
+  console.log(JSON.stringify(score));
   let colorName = prompt("What color secured highest jump? ", "");
   if (
     (colorName && colorName === "red") ||
@@ -80,7 +80,7 @@ function HighJump(score, callback) {
   ) {
     score[colorName] += 100;
     console.log("updated new score :");
-    console.log(score);
+    console.log(JSON.stringify(score));
   } else {
     console.log("Event was cancelled");
   }
@@ -99,7 +99,7 @@ function AwardCeremony(score) {
     }
   }
 
-  console.log(score);
+  console.log(JSON.stringify(score));
   result.sort((a, b) => a.achieved - b.achieved);
   console.log(
     `${result[3].color} came first with ${result[3].achieved} points`
